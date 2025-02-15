@@ -1,0 +1,34 @@
+package com.example.processo_seletivo.controller;
+
+import com.example.processo_seletivo.dto.CandidatoDTO;
+import com.example.processo_seletivo.model.Candidato;
+import com.example.processo_seletivo.service.CandidatoService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api")
+@RequiredArgsConstructor
+public class CandidatoController {
+    private final CandidatoService service;
+
+    @PostMapping("/cadastrar-candidato")
+    public ResponseEntity<Candidato> cadastrar(@RequestBody @Valid CandidatoDTO dto) {
+        Candidato candidato = service.cadastrar(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(candidato);
+    }
+
+    @GetMapping("/listar-de-candidatos")
+    public ResponseEntity<List<Candidato>> listarTodos() {
+        List<Candidato> candidatos = service.listarTodos();
+        return ResponseEntity.ok(candidatos);
+    }
+
+}
