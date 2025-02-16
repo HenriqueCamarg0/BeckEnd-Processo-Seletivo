@@ -1,4 +1,10 @@
 package com.example.processo_seletivo.model;
 
-public class Vaga {
-}
+public enum Vaga {
+    DESENVOLVEDOR_BACKEND,
+    DESENVOLVEDOR_FRONTEND,
+    ANALISTA_DE_SISTEMAS,
+    ENGENHEIRO_DE_DADOS,
+    CIENTISTA_DE_DADOS,
+    GERENTE_DE_PROJETOS,
+    ARQUITETO_DE_SOLUCOES}

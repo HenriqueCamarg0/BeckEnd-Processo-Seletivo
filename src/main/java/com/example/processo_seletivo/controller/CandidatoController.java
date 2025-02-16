@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@SuppressWarnings("unused")
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -31,4 +32,15 @@ public class CandidatoController {
         return ResponseEntity.ok(candidatos);
     }
 
+    @GetMapping("/listar-candidato/{id}")
+    public ResponseEntity<Candidato> listarPorId(@PathVariable Long id) {
+        Candidato candidato = service.obterPorId(id);
+        return ResponseEntity.ok(candidato);
+    }
+
+    @DeleteMapping("/candidatos/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+        service.deletar(id);
+        return ResponseEntity.noContent().build();
+    }
 }
