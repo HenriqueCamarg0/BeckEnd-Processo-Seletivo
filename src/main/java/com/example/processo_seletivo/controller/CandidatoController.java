@@ -17,6 +17,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class CandidatoController {
     private final CandidatoService service;
 
@@ -26,13 +27,13 @@ public class CandidatoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(candidato);
     }
 
-    @GetMapping("/listar-de-candidatos")
+    @GetMapping("/lista-de-candidatos")
     public ResponseEntity<List<Candidato>> listarTodos() {
         List<Candidato> candidatos = service.listarTodos();
         return ResponseEntity.ok(candidatos);
     }
 
-    @GetMapping("/listar-candidato/{id}")
+    @GetMapping("/lista-de-candidato/{id}")
     public ResponseEntity<Candidato> listarPorId(@PathVariable Long id) {
         Candidato candidato = service.obterPorId(id);
         return ResponseEntity.ok(candidato);

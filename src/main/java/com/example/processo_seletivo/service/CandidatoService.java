@@ -31,6 +31,8 @@ public class CandidatoService {
         candidato.setSalarioPretendido(dto.getSalarioPretendido());
         candidato.setTelefone(dto.getTelefone());
         candidato.setVaga(dto.getVaga());
+        candidato.setLinkedin(dto.getLinkedin());
+        candidato.setGitHub(dto.getGitHub());
         candidato.setStatus(StatusCandidato.EM_ANALISE);
         Candidato savedCandidato = repository.save(candidato);
         
