@@ -11,14 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
-@SuppressWarnings("unused")
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200")
 public class CandidatoController {
+
     private final CandidatoService service;
 
     @PostMapping("/cadastrar-candidato")

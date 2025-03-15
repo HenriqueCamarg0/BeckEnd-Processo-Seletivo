@@ -1,5 +1,6 @@
 package com.example.processo_seletivo.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -27,18 +28,22 @@ public class Candidato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length =200, nullable = false)
     @NotNull(message = "O nome não pode ser nulo")
     @NotBlank(message = "O nome não pode estar em branco")
     private String nome;
 
+    @Column(length =200, nullable = false)
     @Email(message = "O email deve ser válido")
     @NotNull(message = "O email não pode ser nulo")
     private String email;
 
+    @Column(length =200, nullable = false)
     @NotNull(message = "O salário pretendido não pode ser nulo")
     @Positive(message = "O salário pretendido deve ser positivo")
     private Double salarioPretendido;
 
+    @Column(length = 11, nullable = false)
     @NotNull(message = "O telefone não pode ser nulo")
     @Pattern(regexp = "\\(\\d{2}\\) \\d{4,5}-\\d{4}", message = "O telefone deve estar no formato (XX) XXXXX-XXXX")
     private String telefone;
