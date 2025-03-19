@@ -43,7 +43,7 @@ public class Candidato {
     @Positive(message = "O salário pretendido deve ser positivo")
     private Double salarioPretendido;
 
-    @Column(length = 11, nullable = false)
+    @Column(length = 15, nullable = false) 
     @NotNull(message = "O telefone não pode ser nulo")
     @Pattern(regexp = "\\(\\d{2}\\) \\d{4,5}-\\d{4}", message = "O telefone deve estar no formato (XX) XXXXX-XXXX")
     private String telefone;
